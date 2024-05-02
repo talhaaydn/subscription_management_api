@@ -4,6 +4,11 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
+    auth_secret: T_SUBSCRIPTION_MANAGEMENT_API_PROJECT_2024
+    google_api_username: '%env(GOOGLE_API_USERNAME)%'
+    google_api_password: '%env(GOOGLE_API_PASSWORD)%'
+    ios_api_username: '%env(IOS_API_USERNAME)%'
+    ios_api_password: '%env(IOS_API_PASSWORD)%'
 
 services:
     # default configuration for services in *this* file
@@ -22,3 +27,6 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    Predis\Client:
+        alias: snc_redis.default
